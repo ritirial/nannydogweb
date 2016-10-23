@@ -60,6 +60,9 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 	-o-transition:.5s ease-in-out;
 	-ms-transition:.5s ease-in-out;
 }
+#title-our-services{
+  font-size:2.5em !important;
+}
 .our-backgroud{
  background-image: url(../images/fondo.jpg);
  background-repeat:no-repeat;
@@ -410,7 +413,6 @@ button.close {
 }
 .banner-bottom-image-text-left p{
 	color:#3D3D3D;
-	margin:3em 0;
 	line-height:1.8em;
 }
 .banner-bottom-image-text-left h4{
@@ -1236,9 +1238,6 @@ div#myTabContent {
 	.banner-bottom-image-text-left h4 {
 		font-size:1.28em;
 	}
-	.banner-bottom-image-text-left p {
-		margin: 2em 0;
-	}
 	.banner-bottom-image-text-left {
 		padding:3em 3em 2.1em 3.7em;
 	}
@@ -1422,9 +1421,6 @@ div#myTabContent {
   }
 	.banner-bottom-image-text-left {
 		padding: 3em 10em;
-	}
-	.banner-bottom-image-text-left p {
-		margin: 3em 0;
 	}
 	.banner-bottom-image-text-left h3:after, .w3agile_contact_left h3:after, .agileits_about_grid_left h3:after {
 		bottom: -8%;
@@ -1684,11 +1680,8 @@ div#myTabContent {
 	}
 	.wthree_banner_bottom_right h3 {
 		font-size: 1.4em;
-	}
-	.banner-bottom-image-text-left p {
-		margin: 2em 0;
-	}
-	.team-bottom {
+	}	
+  .team-bottom {
 		padding: 2em 0;
 	}
 	.team-bottom p {
@@ -1892,9 +1885,6 @@ div#myTabContent {
 	}
 	.wthree_banner_bottom_right h3 {
 		font-size: 1.1em;
-	}
-	.banner-bottom-image-text-left p {
-		margin: 2em 0 1em;
 	}
 	.view, .view .mask, .view .content {
 		width: 243px;
