@@ -26,13 +26,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <!-- Custom Theme files -->
         <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
         <link href="css/style.css" rel='stylesheet' type='text/css' />
+        
         <link rel="stylesheet" href="css/jquery-ui.css" type='text/css' />
         <link rel="stylesheet" href="css/smoothbox.css" type='text/css' >
         <link rel="stylesheet" href="css/creative.min.css" >
 
         <!-- for FF, Chrome, Opera -->
-        <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
 
         <!-- for IE -->
@@ -40,25 +41,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
         <!-- //Custom Theme files -->
         
-        <!-- js -->
-        <script src="js/jquery.min.js"></script>
-        <!-- //js -->
-        
         <!--webfont-->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i" rel="stylesheet">
-        
-        <!-- start-smoth-scrolling -->
-        <script type="text/javascript" src="js/move-top.js"></script>
-        <script type="text/javascript" src="js/easing.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $(".scroll").click(function(event){		
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-                });
-            });
-        </script>
-        <!-- start-smoth-scrolling -->
     </head>
     
     <body>
@@ -595,26 +579,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="clearfix"> </div>
 	</div>
-<!-- //contact -->
-<!-- for bootstrap working -->
-<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
-</body>
+        <!-- //contact -->
+        
+        <!-- js -->
+        <script src="js/jquery.min.js"></script>
+        <!-- //js -->
+        
+        <!-- start-smoth-scrolling -->
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){		
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                });
+            });
+        </script>
+        <!-- start-smoth-scrolling -->
+        
+        <!-- for bootstrap working -->
+        <script src="js/bootstrap.js"></script>
+        <!-- //for bootstrap working -->
+        <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $().UItoTop({ easingType: 'easeOutQuart' });
+            });
+        </script>
+        <!-- //here ends scrolling icon -->
+    </body>
 </html>
