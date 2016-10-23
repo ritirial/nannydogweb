@@ -33,7 +33,6 @@ body{
  }
 h1,h2,h3,h4,h5,h6{
 	margin:0;	
-	font-family: 'Gloria Hallelujah', cursive;
 }	
 p{
 	margin:0;
@@ -114,13 +113,11 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 }
 .modal-body h3 {
     color:white;
-    font-family: 'Open Sans', sans-serif;
     font-size:1.8em;
     letter-spacing: 3px;
 }
 .modal-body h4 {
      color:white;
-     font-family: 'Open Sans', sans-serif;
      font-size:1.5em;
      letter-spacing: 3px;
 }
@@ -131,9 +128,7 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 .mi-lista{
   padding-left: 10%;
 }
-.mi-aliniada{
-  font-family: 'Open Sans', sans-serif;
-  text-align: left;
+.mi-aliniada{  text-align: left;
   font-size:1.5em;
 }
 #modal-titles{
@@ -155,7 +150,6 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 }
 #blanquear1,#blanquear2,#blanquear3,#blanquear4,#blanquear5{
   color:white;
-  font-family: verdana;
 }
 #blanquear4{
   font-size: 22px;
@@ -288,7 +282,6 @@ span.menu{
     line-height: 1.5em;
     padding-bottom: 0.2em;
     position: relative;
-    font-family: 'Open Sans', sans-serif;
 }
 .w3ls_banner_info h3:after{
 	content:'';
@@ -398,7 +391,6 @@ button.close {
     line-height: 1.5em;
     position: relative;
 	padding-bottom:.5em;
-	font-family: 'Open Sans', sans-serif;
 }
 .banner-bottom-image-text-left h3:before,.banner-bottom-image-text-left h3:after,.w3agile_contact_left h3:before,.w3agile_contact_left h3:after,.agileits_about_grid_left h3:before,.agileits_about_grid_left h3:after{
 	content:'';
@@ -449,7 +441,6 @@ button.close {
   font-size: 2.5em;
   padding-bottom:.7em;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
   text-align: center;
   text-transform: capitalize;
 }
@@ -458,7 +449,6 @@ button.close {
     color: #fff;
     padding-bottom:.7em;
     position: relative;
-    font-family: 'Open Sans', sans-serif;
     text-align: center;
 	  text-transform: capitalize;
 }
@@ -523,7 +513,6 @@ p.nostrud{
     position: relative;
     font-size: 1.7em;
     margin:2.5em 0 .5em;
-    font-family: 'Open Sans', sans-serif;
 }
 .view p {
    font-style: italic;
@@ -903,7 +892,6 @@ select#country,select#country1{
 	text-transform:capitalize;
 }
 .w3agile_gallery_grid figcaption p {
-    font-family: 'Open sans';
     line-height: 1.8em;
     text-align: center;
     padding: 0px 20px;
@@ -977,7 +965,6 @@ div#myTabContent {
 	font-size:13px;
 	color:#C6B26B;
 	margin:.5em 0 0;
-	font-family: 'Open Sans', sans-serif;
     font-weight: 500;
 }
 .tabcontent-grids p{
@@ -1366,21 +1353,18 @@ div#myTabContent {
 @media (max-width:991px){
   .modal-body h3 {
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1.7em;
     letter-spacing: 3px;
 }
 .modal-body h4 {
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
     letter-spacing: 3px;
 }
 .mi-lista{
   padding-left: 30%;
 }
-.mi-aliniada{
-  font-family: 'Open Sans', sans-serif;
+.mi-aliniada{  
   text-align: left;
   font-size:1.3em;
 }
