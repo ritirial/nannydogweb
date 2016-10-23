@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6{
 }	
 p{
 	margin:0;
-	font-size:14px;
+	font-size:1.4em !important;
 }
 ul{
 	margin:0;
@@ -1432,6 +1432,10 @@ div#myTabContent {
 	.wthree_banner_bottom_right {
 		margin: 3em 0 4em;
 	}
+  .banner-bottom-image-text{
+
+    color:#565656;
+  }
 	.banner-bottom-image-text-left {
 		padding: 3em 10em;
 	}
