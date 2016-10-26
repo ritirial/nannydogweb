@@ -86,7 +86,11 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
   background-color: #37b7b7; 
   color:white;
 }
-
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
 .modal-backgroud{
  background-image: url(../images/fondo.jpg);
  background-repeat:no-repeat;
