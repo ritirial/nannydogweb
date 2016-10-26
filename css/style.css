@@ -137,6 +137,9 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
 #modal-titles{
   color:black;
 }
+.section-heading{
+  padding-top: 1.5em;
+}
 .about{
  
   display: inline-block;
@@ -146,27 +149,17 @@ input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
   width: 100%;
 }
 .title-services{
-  font-size: 20px;
+  font-size: 1.5em;
 }
 .description-services{
-  font-size: 14px;
-}
-#blanquear1,#blanquear2,#blanquear3,#blanquear4,#blanquear5{
-  color:white;
-}
-#blanquear4{
-  font-size: 22px;
-}
-#blanquear3, #blanquear5{
-  font-size: 18;
+  font-size: 1.2em!important;
 }
 #blanquear6{
-  color:white;
   text-align: center;
   padding-top: 10px;
 }
 #nuestro-testimonio{
-  color:#4BC319;
+  color:white;
 }
 #subtitulo{
   font-size: 1.4em;
@@ -290,10 +283,10 @@ span.menu{
 	content:'';
 	background:#96F070;
 	height:1px;
-	width:30%;
+	width:55%;
 	position:absolute;
 	bottom:0%;
-	left:34%;
+  left: 23%;
 }
 .w3ls_banner_info p{
 	color:#fff;
@@ -311,12 +304,16 @@ span.menu{
     outline: none;
 }
 .more a{
-	font-size: 14px;
+	  font-size: 1.4em;
     text-transform: capitalize;
     text-decoration: none;
     padding: 8px 40px;
     background: #01DBDC;
     color: #fff;
+}
+.more{
+  width: 100%;
+  padding-top: 10px;
 }
 
 button.close {
@@ -436,6 +433,10 @@ button.close {
 }
 /*-- //banner-bottom --*/
 /*-- team --*/
+.testimonials{
+  background-color: #37b7b7;
+}
+
 .team,.gallery,.testimonials,.about{
 	padding:5em 0;
 }
@@ -446,7 +447,14 @@ button.close {
   text-align: center;
   text-transform: capitalize;
 }
-.team-bottom h3,.gallery h3,.testimonials h3{
+.gallery h3{
+    color: black;
+    font-size: 2.5em;
+    position: relative;
+    text-align: center;
+    text-transform: capitalize;
+}
+.team-bottom h3,.testimonials h3{
 	  font-size: 2.5em;
     color: #fff;
     padding-bottom:.7em;
@@ -471,6 +479,7 @@ button.close {
     bottom: -5%;
 }
 p.nostrud{
+  color: white;
 	  margin: 2em 0 0;
     line-height: 1.8em;
     text-align: center;
@@ -817,7 +826,8 @@ select#country,select#country1{
 /*-- //team-bottom --*/
 /*-- gallery --*/
 .gallery {
-    background: #5cdcdc;
+    background: #fff;
+    color: black !important;
 }
 .w3agile_gallery_grids {
     margin: 3em 0 0;
@@ -922,7 +932,7 @@ select#country,select#country1{
 .nav-tabs > li > a {
     border-radius: 0;
     font-size: 1em;
-    color: #999;
+    color: white;
 }
 .nav-tabs > li.active {
     position: relative;
@@ -931,7 +941,7 @@ select#country,select#country1{
     position: absolute;
     bottom:-100%;
     left: 27%;
-    background: url(../images/1.png) no-repeat 0px 0px #fff;
+    
     display: block;
     height: 38px;
     width: 27px;
@@ -959,18 +969,18 @@ div#myTabContent {
 }
 .tabcontent-grids h4{
 	font-size:1em;
-	color:#212121;
+	color:white;
 	margin:1em 0;
 }
 .tabcontent-grids h4 span{
 	display:block;
 	font-size:13px;
-	color:#C6B26B;
+	color:white;
 	margin:.5em 0 0;
     font-weight: 500;
 }
 .tabcontent-grids p{
-	color:#999;
+	color:white;
 	line-height:1.8em;
 	width:60%;
 	margin:0 auto;
@@ -1001,7 +1011,7 @@ div#myTabContent {
 	padding:9.9em 13em 5em 5em;
 }
 .w3agile_contact_left{
-	background:#F7F7F7;
+	background:white;
 }
 .w3agile_contact_right{
 	background:#01DBDC;
@@ -1771,6 +1781,7 @@ div#myTabContent {
 		width: 100%;
 	}
 	.gallery {
+    color:black !important;
 		padding-left: 1em;
 		padding-right: 1em;
 	}
