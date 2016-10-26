@@ -499,10 +499,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3>Contáctanos</h3>
 			<p>¿Tienes preguntas?</p>
 			<p>Deja tus datos y te contactaremos muy pronto.</p>
-			<form action="#" method="post">
-				<input type="text" name="Nombre" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" required="">
-				<input type="email" name="Correo" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}" required="">
-				<textarea name="Mensaje" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje...';}" required="">Mensaje...</textarea>
+			<form action="contact.php" method="post">
+				<input type="text" name="name" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" required="">
+				<input type="email" name="email" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}" required="">
+				<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje...';}" required="">Mensaje...</textarea>
 				<input type="submit" value="Enviar">
 			</form>
 		</div>
