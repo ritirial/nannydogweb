@@ -1,0 +1,6 @@
+{
+    "require" : {
+        "parse/php-sdk":"1.2.*",
+         "facebook/php-sdk-v4" : "~5.0"
+    }
+}

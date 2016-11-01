@@ -14,6 +14,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<link href="css/login-register.css" rel="stylesheet" />
+
         <!-- //for-mobile-apps -->
         <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 
@@ -37,7 +39,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i" rel="stylesheet">
         
         <!-- js -->
-        <script src="js/jquery.min.js"></script>
+       	<script src="js/jquery.min.js"></script>
+		<script src="js/login-register.js" type="text/javascript"></script>
         
         <script type="application/x-javascript">
             addEventListener("load", function() {
@@ -81,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a data-hover="Equipo" href="#team" class="scroll">Equipo</a></li>
 								<li><a data-hover="Gallería" href="#gallery" class="scroll">Gallería</a></li>
 								<li><a data-hover="Contacto" href="#contact" class="scroll">Contacto</a></li>
-								<li><a data-hover="Login" href="#contact" class="scroll">Login</a></li>
+								<li><a data-hover="Login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();" class="scroll">Login</a></li>
 							</ul>
 						</nav>
                         <!-- script-for-menu -->
@@ -105,6 +108,70 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade login" id="loginModal">
+		<div class="modal-dialog login animated">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Iniciar sesión con</h4>
+			</div>
+			<div>  
+				<div class="box">
+						<div class="content">
+						<div class="social">
+							<a id="google_login" class="circle google" href="/auth/google_oauth2">
+								<i class="fa fa-google-plus fa-fw"></i>
+							</a>
+							<a id="facebook_login" class="circle facebook" href="login-facebook.php">
+								<i class="fa fa-facebook fa-fw"></i>
+							</a>
+						</div>
+						<div class="division">
+							<div class="line l"></div>
+								<span>ó</span>
+							<div class="line r"></div>
+						</div>
+						<div class="error"></div>
+						<div class="form loginBox">
+							<form method="post" accept-charset="UTF-8">
+								<input id="email" class="form-control" type="text" placeholder="Email" name="email">
+								<input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
+								<input class="btn btn-default btn-login" type="submit" value="Login" onclick="loginAjax()">
+							</form>
+						</div>
+						</div>
+				</div>
+				<div class="box">
+					<div class="content registerBox" style="display:none;">
+						<div class="form">
+						<form method="post" html="{:multipart=>true}" data-remote="true" action="signup.php" accept-charset="UTF-8">
+							<input id="email" class="form-control" type="text" placeholder="Email" name="email">
+							<input id="password" class="form-control" type="password" placeholder="Contraseña" name="password">
+							<input id="password_confirmation" class="form-control" type="password" placeholder="Repita su contraseña" name="password_confirmation">
+							<input id="name" class="form-control" type="text" placeholder="Nombre" name="name">
+							<input id="lastname" class="form-control" type="text" placeholder="Apellido" name="lastname">
+							<input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="forgot login-footer">
+					<span>
+							<a href="javascript: showRegisterForm();">Crear una cuenta</a>
+					</span>
+				</div>
+				<div class="forgot register-footer" style="display:none">
+						<span>¿Ya tienes una cuenta?</span>
+						<a href="javascript: showLoginForm();">Login</a>
+				</div>
+			</div>        
+			</div>
+		</div>
+	</div>
+
 <!-- Services -->
 	<section id="services">
         <div class="container">
@@ -499,10 +566,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3>Contáctanos</h3>
 			<p>¿Tienes preguntas?</p>
 			<p>Deja tus datos y te contactaremos muy pronto.</p>
-			<form action="contact.php" method="post">
-				<input type="text" name="name" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" required="">
-				<input type="email" name="email" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}" required="">
-				<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje...';}" required="">Mensaje...</textarea>
+			<form action="#" method="post">
+				<input type="text" name="Nombre" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}" required="">
+				<input type="email" name="Correo" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}" required="">
+				<textarea name="Mensaje" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje...';}" required="">Mensaje...</textarea>
 				<input type="submit" value="Enviar">
 			</form>
 		</div>
