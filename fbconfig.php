@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 require 'vendor/autoload.php';
 
@@ -14,6 +14,10 @@ use Facebook\GraphObject;
 use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
+
+if(!session_id()) {
+  session_start();
+}
 
 //Init App con la AppID y la llave secreta de Facebook.
 FacebookSession::setDefaultApplication( 'Your APP ID','Your APP Secret' );

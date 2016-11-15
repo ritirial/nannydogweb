@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     require 'vendor/autoload.php';
 
     use Facebook\Facebook;
@@ -8,6 +6,23 @@
     use Facebook\GraphNodes\GraphUser;
     use Facebook\Exceptions\FacebookSDKException;
     use Facebook\Exceptions\FacebookResponseException;
+
+    use Parse\ParseClient;
+    use Parse\ParseUser;
+    use Parse\ParseQuery;
+    use Parse\ParseSessionStorage;
+    use Parse\ParseFile;
+
+    ob_start();
+
+    if(!session_id()) {
+        session_start();
+    }
+
+    //session_start();
+
+    ParseClient::initialize('5MUjnjMwd8whYbxWY2pWqAv0QMZ3MHGStiMqRt3y', 'bvdNyubNuQUFWRWZ3cfFSZpm0q6KvHk5gW2xf2D3', 'xoZNO6TOuIV4kLHvIwTam9tYa2xY9prURzhFyASL');
+    ParseClient::setServerURL('https://parseapi.back4app.com', '/');
 
     $facebook = new Facebook([
     'app_id' => '1213057995454751',
@@ -20,7 +35,7 @@
     try {
 
         $accessToken = $helper->getAccessToken();
-        $response = $facebook->get('/me?fields=first_name,last_name,email,id,name,age_range', $accessToken);
+        $response = $facebook->get('/me?fields=first_name,last_name,email,id,name', $accessToken);
 
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
         // When Graph returns an error
@@ -47,18 +62,73 @@
     }
 
     // Logged in
+        try{
+            $user = $response->getGraphUser();
+            
+            $user_id = $user['id'];
+            $user_name = $user['name'];
+            $user_firstname = $user['first_name'];
+            $user_lastname = $user['last_name'];  
+            $user_email = $user['email'];
+            $user_photo_profile = "https://graph.facebook.com/".$user['id']."/picture?type=large";
+            
+            echo 'FacebookID: '. $user_id.'<br>';
+            echo 'Nombre: '. $user_name.'<br>';
+            echo 'Primer nombre: '.$user_firstname.'<br>';
+            echo 'Apellido: '.$user_lastname.'<br>';
+            echo "Email: ". $user_email.'<br>';
+            echo '<img src="https://graph.facebook.com/'.$user['id'].'/picture">';
 
-    $user = $response->getGraphUser();
+            $query = ParseUser::query();
+            $query->equalTo("username", $user_id);
+            $facebook_users = $query->find();
+            
+            if(sizeof($facebook_users) > 0){
 
-    echo 'FacebookID: '.$user['id'].'<br>';
-    echo 'Nombre: '.$user['name'].'<br>';
-    echo 'Primer nombre: '.$user['first_name'].'<br>';
-    echo 'Apellido: '.$user['last_name'].'<br>';
-    echo "Email: ".$user['email'].'<br>';
-    echo "Edad: ".$user['age_range'].'<br>';
-    echo '<img src="https://graph.facebook.com/'.$user['id'].'/picture">';
+                echo "el usuario existe";
+                $person = $facebook_users[0];
 
-    $_SESSION['fb_access_token'] = (string) $accessToken;
+                $person_id = $person->getObjectId();
+                $person_name = $person->get('username');
 
+                $_SESSION['idUsuario'] = $person_id;
+                $_SESSION['usuario'] = $person_name;
+                $_SESSION['fb_access_token'] = (string) $accessToken;
 
+                $storage = new ParseSessionStorage();
+                ParseClient::setStorage($storage);
+        
+            } else{
+
+                $user = new ParseUser();
+
+                $user->set("name", $user_name);
+                $user->set("password", uniqid());
+                $user->set("username", $user_id);
+                $user->set("email", $user_email);
+                $user->set("lastname", $user_lastname);
+                $user_photo = ParseFile::createFromFile($user_photo_profile, "photo_profile.png");
+                $user_photo->save();
+                $user->set("image_profile", $user_photo);
+
+                $_SESSION['idUsuario'] = $person_id;
+                $_SESSION['usuario'] = $person_name;
+                $_SESSION['fb_access_token'] = (string) $accessToken;
+
+                $storage = new ParseSessionStorage();
+                ParseClient::setStorage($storage);
+
+                try {
+                    $user->signUp();
+                } catch (ParseException $ex) {
+                    echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
+                }        
+            }
+            header("Location: http://nannydog.azurewebsites.net/dashboard.php");
+        }catch(Exception $ex){
+            echo "Error al validar<br/>";
+            echo $ex;
+            echo "<br/>";
+        }
+        ob_end_flush();
 ?>

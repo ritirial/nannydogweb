@@ -4,7 +4,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Registro con');
+        $('.modal-title').html('Regístrate con');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
@@ -16,7 +16,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Login con');
+        $('.modal-title').html('Iniciar sesión con');
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
@@ -38,13 +38,19 @@ function openRegisterModal(){
 
 function loginAjax(){
 
-    $.post( "../login.php", function( data ) {
-            if(data == 1){
-                window.location.replace("../index.html");            
-            } else {
-                 shakeModal(); 
+    $.getJSON( "../login.php", { "email" : document.loginform.email.value, "password" : document.loginform.password.value } )
+        .done(function( data, textStatus, jqXHR ) {
+            if ( console && console.log ) {
+                window.location.replace("../dashboard.php");
+                console.log( "La solicitud se ha completado correctamente." );
             }
-        });
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if ( console && console.log ) {
+                console.log( "Algo ha fallado: " +  textStatus );
+                shakeModal(); 
+            }
+    });
     
 
 /*   Simulate error message from the server   */
@@ -53,7 +59,7 @@ function loginAjax(){
 
 function shakeModal(){
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html("Email o password son incorrectos.");
+             $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
              $('input[type="password"]').val('');
              setTimeout( function(){ 
                 $('#loginModal .modal-dialog').removeClass('shake'); 

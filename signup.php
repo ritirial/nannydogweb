@@ -18,7 +18,7 @@ use Parse\ParseUser;
         $user->set("lastname", $_POST['lastname']);
 
         try {
-            $user->signUp(); 
+            $user->signUp();
         } catch (ParseException $ex) {
             echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
         }    

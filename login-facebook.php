@@ -19,7 +19,7 @@
     $helper = $facebook->getRedirectLoginHelper('login-facebook.php');
 
     $permissions = ['public_profile', 'email'];
-    $loginUrl = $helper->getLoginUrl('http://localhost/nannydogbeta/fb-callback.php', $permissions);
+    $loginUrl = $helper->getLoginUrl('http://nannydog.azurewebsites.net/fb-callback.php', $permissions);
 
     header ("Location: $loginUrl");
     

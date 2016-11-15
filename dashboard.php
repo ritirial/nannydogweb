@@ -1,3 +1,28 @@
+<?php
+
+  require 'vendor/autoload.php';
+
+  use Parse\ParseClient;
+  use Parse\ParseUser;
+  use Parse\ParseQuery;
+  use Parse\ParseFile;
+
+  session_start();
+
+  ParseClient::initialize('5MUjnjMwd8whYbxWY2pWqAv0QMZ3MHGStiMqRt3y', 'bvdNyubNuQUFWRWZ3cfFSZpm0q6KvHk5gW2xf2D3', 'xoZNO6TOuIV4kLHvIwTam9tYa2xY9prURzhFyASL');
+  ParseClient::setServerURL('https://parseapi.back4app.com', '/');
+
+  $current_user = ParseUser::getCurrentUser();
+
+  if($current_user != null){
+    $photo =  $current_user->get("image_profile");
+    $imageURL = $photo->getURL();
+  }else{
+    $imageURL = "./images/profile_default.png";
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,19 +54,35 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
       <li class="active">
-        <a href="./index.html">
+        <a href="./dashboard.php">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
           <div class="title">Dashboard</div>
         </a>
       </li>
-      <li class="@@menu.messaging">
+      <li class="active">
+        <a href="./pages/mascotas.php">
+          <div class="icon">
+            <i class="fa fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="title">Mis mascotas</div>
+        </a>
+      </li>
+      <li class="active">
         <a href="#">
           <div class="icon">
-            <i class="fa fa-comments" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
           </div>
-          <div class="title">Mensajes</div>
+          <div class="title">Reservaciones</div>
+        </a>
+      </li>
+      <li class="active">
+        <a href="./pages/profile.php">
+          <div class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="title">Mi cuenta</div>
         </a>
       </li>
     </ul>
@@ -191,12 +232,19 @@
         </li>
         <li class="dropdown profile">
           <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
-            <img class="profile-img" src="./assets/images/profile.png">
+          <?php
+            echo '<img class="profile-img" src="'.$imageURL.'">';
+          ?>
+            <!--<img class="profile-img" src="./assets/images/profile.png">-->
             <div class="title">Profile</div>
           </a>
           <div class="dropdown-menu">
             <div class="profile-info">
-              <h4 class="username">Guillermo Arturo</h4>
+              <h4 class="username">
+                  <?php
+                    echo $current_user->get("name");
+                  ?>
+              </h4>
             </div>
             <ul class="action">
               <li>
@@ -266,7 +314,7 @@
         </ul>
       </div>
       <div class="card-body">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.033122753807!2d-98.24351968561434!3d19.01826205872819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc74296a8201f%3A0x8888d7339559ccd4!2sTecnol%C3%B3gico+de+Monterrey+Campus+Puebla!5e0!3m2!1ses!2smx!4v1477168102191" width="1200" height="480" frameborder="0" style="border:0" allowfullscreen></iframe>
+      
       </div>
     </div>
   </div>
