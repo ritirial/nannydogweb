@@ -36,6 +36,7 @@
 
       $pet->save(); 
   }
+  
   $user = ParseUser::getCurrentUser();
   $pet_relation = $user->getRelation("my_pets");
   $pet_relation->add($pet);

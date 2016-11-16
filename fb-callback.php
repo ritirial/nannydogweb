@@ -15,11 +15,7 @@
 
     ob_start();
 
-    if(!session_id()) {
-        session_start();
-    }
-
-    //session_start();
+    session_start();
 
     ParseClient::initialize('5MUjnjMwd8whYbxWY2pWqAv0QMZ3MHGStiMqRt3y', 'bvdNyubNuQUFWRWZ3cfFSZpm0q6KvHk5gW2xf2D3', 'xoZNO6TOuIV4kLHvIwTam9tYa2xY9prURzhFyASL');
     ParseClient::setServerURL('https://parseapi.back4app.com', '/');
@@ -79,7 +75,7 @@
             echo "Email: ". $user_email.'<br>';
             echo '<img src="https://graph.facebook.com/'.$user['id'].'/picture">';
 
-            $query = ParseUser::query();
+            $query = ParseUser::query("_User");
             $query->equalTo("username", $user_id);
             $facebook_users = $query->find();
             
@@ -99,6 +95,8 @@
                 ParseClient::setStorage($storage);
         
             } else{
+
+                 echo "el usuario no existe";
 
                 $user = new ParseUser();
 
@@ -124,7 +122,7 @@
                     echo "Error: " . $ex->getCode() . " " . $ex->getMessage();
                 }        
             }
-            header("Location: http://nannydog.azurewebsites.net/dashboard.php");
+            header("Location: http://localhost/nannydogbeta/dashboard.php");
         }catch(Exception $ex){
             echo "Error al validar<br/>";
             echo $ex;
